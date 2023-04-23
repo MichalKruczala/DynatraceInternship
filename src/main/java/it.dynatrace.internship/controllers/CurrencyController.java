@@ -25,10 +25,7 @@ public class CurrencyController {
         sb.append(currency).append("/").append(date).append("/");
         ExchangeRates body = restTemplate.getForEntity(sb.toString(), ExchangeRates.class).getBody();
         return ResponseEntity.status(HttpStatus.OK).body(body.getRates().get(0).getMid());
-
-
     }
-
     @RequestMapping(path = "/extreme/currency/{currency}/quotation/{quotation}", method = RequestMethod.GET)
     public ResponseEntity<ExtremeDTO> task2(@PathVariable String quotation, @PathVariable String currency) {
 
@@ -51,6 +48,5 @@ public class CurrencyController {
         List<Double> differences = body.getRates().stream().map(c -> c.getAsk() - c.getBid()).collect(Collectors.toList());
         Double maxDifference = Collections.max(differences);
         return ResponseEntity.status(HttpStatus.OK).body(maxDifference);
-
     }
 }
