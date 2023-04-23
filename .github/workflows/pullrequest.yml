@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'adopt-openj9'
 
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
