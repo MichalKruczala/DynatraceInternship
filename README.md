@@ -1,7 +1,5 @@
 # DynatraceInternship
 
-# Dockerfile
-
 build
 
 ```
