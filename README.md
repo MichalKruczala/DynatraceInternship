@@ -2,11 +2,13 @@
 
 build
 
+In project root directory(same level as README.me) run in terminal: 
+
 ```
 docker build . -t local
 ```
 
-run
+then type blow command to run server
 
 ```
 docker run -d -p 8080:8080 local 
