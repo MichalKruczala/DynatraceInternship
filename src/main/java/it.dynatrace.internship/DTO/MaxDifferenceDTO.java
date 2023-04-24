@@ -6,5 +6,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MaxDifferenceDTO {
-    Double maxDifference;
+   public Double maxDifference;
 }

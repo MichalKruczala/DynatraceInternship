@@ -11,5 +11,4 @@ public class TestClass {
         throw new RuntimeException("wywaliło sie");
     }
 
-
 }
