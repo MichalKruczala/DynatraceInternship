@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -22,7 +23,7 @@ public class AppConfiguration {
                 .useDefaultResponseMessages(false)
                 .directModelSubstitute(Object.class, Void.class)
                 .select()
-                .paths(PathSelectors.ant("/**"))
+                .apis(RequestHandlerSelectors.basePackage("it.dynatrace.internship.controllers"))
                 .build()
                 .apiInfo(createApiInfo());
 
