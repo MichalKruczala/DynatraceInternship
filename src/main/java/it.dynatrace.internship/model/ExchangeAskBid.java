@@ -10,7 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class ExchangeAskBid {
 
     private List<Rate> rates;

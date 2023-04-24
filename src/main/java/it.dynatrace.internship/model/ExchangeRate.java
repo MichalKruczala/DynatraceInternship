@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 
-public class ExchangeRates implements Serializable {
+public class ExchangeRate implements Serializable {
 
     private String table;
     private String no;
