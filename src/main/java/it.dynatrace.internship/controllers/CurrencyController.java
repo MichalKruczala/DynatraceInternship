@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 
 public class CurrencyController {
@@ -16,19 +18,21 @@ public class CurrencyController {
 
     @RequestMapping(path = "/average/currency/{currency}/date/{date}", method = RequestMethod.GET)
     public ResponseEntity<Double> task1(@PathVariable String currency, @PathVariable String date) {
-        Double mid = this.nbpService.getMid(currency, date);
-        return ResponseEntity.status(HttpStatus.OK).body(mid);
+        Optional<Double> mid = this.nbpService.getMid(currency, date);
+        return mid.map(aDouble -> ResponseEntity.status(HttpStatus.OK).body(aDouble)).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+        //TODO dla kursów walut – od 2 stycznia 2002 r.,
     }
 
     @RequestMapping(path = "/extreme/currency/{currency}/quotation/{quotation}", method = RequestMethod.GET)
     public ResponseEntity<ExtremeDTO> task2(@PathVariable String quotation, @PathVariable String currency) {
-        ExtremeDTO minMax = this.nbpService.getMinMax(quotation, currency);
-        return ResponseEntity.status(HttpStatus.OK).body(minMax);
+        Optional<ExtremeDTO> minMax = this.nbpService.getMinMax(quotation, currency);
+        return minMax.map(extremeDTO -> ResponseEntity.status(HttpStatus.OK).body(extremeDTO)).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
     }
 
     @RequestMapping(path = "/difference/currency/{currency}/quotation/{quotation}", method = RequestMethod.GET)
     public ResponseEntity<MaxDifferenceDTO> task3(@PathVariable String quotation, @PathVariable String currency) {
-        MaxDifferenceDTO maxDifference = this.nbpService.getMaxDifference(currency, quotation);
-        return ResponseEntity.status(HttpStatus.OK).body(maxDifference);
+        Optional<MaxDifferenceDTO> maxDifference = this.nbpService.getMaxDifference(currency, quotation);
+        return maxDifference.map(maxDifferenceDTO -> ResponseEntity.status(HttpStatus.OK).body(maxDifferenceDTO)).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }
