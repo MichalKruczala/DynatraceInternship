@@ -33,7 +33,7 @@ public class AppConfiguration implements WebMvcConfigurer {
     private ApiInfo createApiInfo() {
         return new ApiInfo("DynatraceInternship",
                 "Rest api endpoints",
-                "",
+                "1.0",
                 "",
                 new Contact("Michał", "https://github.com/MichalJunior", "kruczalamichal@gmail.com"),
                 "",

@@ -1,8 +1,23 @@
 # DynatraceInternship
 
-build
+I would like you to visit my Heroku website
 
-In project root directory(same level as README.me) run in terminal: 
+Sample requests for each mapping:
+
+1) https://dynatraceinternship.herokuapp.com/average/currency/usd/date/2023-04-25
+
+2) https://dynatraceinternship.herokuapp.com/difference/currency/usd/quotation/58
+
+3) https://dynatraceinternship.herokuapp.com/extreme/currency/usd/quotation/80
+
+API Design & Documentation:
+
+1) https://dynatraceinternship.herokuapp.com/swagger-ui.html
+
+  ️
+You can also build project
+
+In project root directory(same level as README.me) run in terminal:
 
 ```
 docker build . -t local
@@ -20,7 +35,7 @@ to stop runnings docker containers
 docker stop $(docker container ls -a -q --filter ancestor=local)
 ```
 
-to remove containers 
+to remove containers
 
 ```
 docker rm $(docker container ls -a -q --filter ancestor=local)
