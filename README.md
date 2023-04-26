@@ -7,9 +7,9 @@ Sample requests for each mapping:
 1) https://dynatraceinternship.herokuapp.com/average/currency/usd/date/2023-04-25
 
 2) https://dynatraceinternship.herokuapp.com/difference/currency/usd/quotation/58
-
+   
 3) https://dynatraceinternship.herokuapp.com/extreme/currency/usd/quotation/80
-
+   
 API Design & Documentation:
 
 1) https://dynatraceinternship.herokuapp.com/swagger-ui.html

@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 public class CurrencyExchangeCalculatorTest {
 
     @Test
-    public void shouldCalulateMaxAverageOnRatesContainingSingleElement() {
+    public void shouldCalculateMaxAverageOnRatesContainingSingleElement() {
         List<ExchangeAskBid.Rate> rates = new ArrayList<>();
         rates.add(new ExchangeAskBid.Rate(4.0, 5.0));
         ExchangeAskBid exchangeAskBid = new ExchangeAskBid(rates);
@@ -35,7 +35,7 @@ public class CurrencyExchangeCalculatorTest {
     }
 
     @Test
-    public void shouldCalulateMaxAverageOnRatesWithoutElements() {
+    public void shouldCalculateMaxAverageOnRatesWithoutElements() {
         List<ExchangeAskBid.Rate> rates = new ArrayList<>();
         ExchangeAskBid exchangeAskBid = new ExchangeAskBid(rates);
         Assertions.assertThrows(NoSuchElementException.class, () -> CurrencyExchangeCalculator.calculateMaxDailyRatesDifference(exchangeAskBid));

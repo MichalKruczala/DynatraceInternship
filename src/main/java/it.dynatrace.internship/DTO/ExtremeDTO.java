@@ -7,5 +7,4 @@ import lombok.NoArgsConstructor;
 public class ExtremeDTO {
    public Double maxAverage;
    public Double minAverage;
-
 }

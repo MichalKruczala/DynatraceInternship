@@ -12,7 +12,3 @@ public class CurrencyExchangeCalculator {
         return Collections.max(differences);
     }
 }
-
-
-//    ExchangeRates exchangeRates = nbpApiClient.getExchangeRates(currency, quotation);
-//    List<Double> mids = exchangeRates.getRates().stream().map(c -> c.getMid()).collect(Collectors.toList());
