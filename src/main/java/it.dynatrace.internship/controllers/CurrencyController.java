@@ -43,18 +43,6 @@ public class CurrencyController {
         return ResponseEntity.status(HttpStatus.OK).body(mid);
     }
 
-    @ApiOperation(value = "Get max difference for quotation",
-            notes = "Given a currency code and the number of last quotations N (N <= 255), you can get the major difference between the buy and ask rate.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = MaxDifferenceDTO.class),
-            @ApiResponse(code = 400, message = "Bad Request"),
-            @ApiResponse(code = 404, message = "Not Found")})
-    @RequestMapping(path = "/difference/currency/{currency}/quotation/{quotation}", method = RequestMethod.GET)
-    public ResponseEntity<MaxDifferenceDTO> getMaxDifference(@PathVariable String currency, @PathVariable @Min(1) @Max(255) int quotation) {
-        MaxDifferenceDTO maxDifference = this.nbpService.getMaxDifference(currency, quotation);
-        return ResponseEntity.status(HttpStatus.OK).body(maxDifference);
-    }
-
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
@@ -72,4 +60,18 @@ public class CurrencyController {
         ExtremeDTO minMax = this.nbpService.getExtremeForQuotation(currency, quotation);
         return ResponseEntity.status(HttpStatus.OK).body(minMax);
     }
+
+    @ApiOperation(value = "Get max difference for quotation",
+            notes = "Given a currency code and the number of last quotations N (N <= 255), you can get the major difference between the buy and ask rate.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = MaxDifferenceDTO.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found")})
+    @RequestMapping(path = "/difference/currency/{currency}/quotation/{quotation}", method = RequestMethod.GET)
+    public ResponseEntity<MaxDifferenceDTO> getMaxDifference(@PathVariable String currency, @PathVariable @Min(1) @Max(255) int quotation) {
+        MaxDifferenceDTO maxDifference = this.nbpService.getMaxDifference(currency, quotation);
+        return ResponseEntity.status(HttpStatus.OK).body(maxDifference);
+    }
+
+
 }
