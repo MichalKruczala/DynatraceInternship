@@ -35,7 +35,7 @@ public class AppConfiguration implements WebMvcConfigurer {
                 "Rest api endpoints",
                 "1.0",
                 "",
-                new Contact("Michał", "https://github.com/MichalJunior", "kruczalamichal@gmail.com"),
+                new Contact("Michał", "https://github.com/MichalKruczala", "kruczalamichal@gmail.com"),
                 "",
                 "",
                 Collections.emptyList());
